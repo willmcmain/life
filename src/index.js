@@ -5,6 +5,6 @@ const hello = "hello world!"
 
 ReactDOM.render(
     <div>{hello}</div>,
-    document.getElementById('app')
+    document.getElementById("app")
 )
 
