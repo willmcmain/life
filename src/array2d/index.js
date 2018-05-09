@@ -28,10 +28,10 @@ class Array2d {
 
     _index(x, y) {
         if (x < 0 || x >= this.width) {
-            throw new RangeError('Index is out of range!')
+            throw new RangeError('X Index is out of range!')
         }
         if (y < 0 || y >= this.height) {
-            throw new RangeError('Index is out of range!')
+            throw new RangeError('Y Index is out of range!')
         }
         return (y * this.width) + x
     }

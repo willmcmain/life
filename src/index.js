@@ -1,3 +1,4 @@
+import { update } from 'life'
 import ReactDOM from 'react-dom'
 
 const hello = 'hello world!'
