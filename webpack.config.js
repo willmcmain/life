@@ -3,17 +3,18 @@ const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.jsx',
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
             }
         ]
     },
     resolve: {
+        extensions: ['.js', '.jsx'],
         modules: [
             path.resolve(__dirname + '/src'),
             path.resolve(__dirname + '/node_modules'),
@@ -28,6 +29,7 @@ module.exports = {
         new HtmlWebpackPlugin({template: './src/index.html'})
     ],
     devServer: {
+        historyApiFallback: true,
         contentBase: __dirname + '/dist',
         port: 9000
     }

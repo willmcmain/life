@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import Array2d from 'array2d'
 import update from '.'
 

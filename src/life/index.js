@@ -43,7 +43,7 @@ const countNeighbors = function(board, x, y) {
                 continue
             }
             else if (board.get(x+i, y+j)) {
-                    count++
+                count++
             }
         }
     }
