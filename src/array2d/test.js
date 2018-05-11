@@ -93,3 +93,29 @@ test('Set array values', () => {
     arr.set(15, 0, 3)
     expect(arr.get(0,3)).toEqual(15)
 })
+
+
+test('Setting array values does not alter original lists (Array2d makes a copy)', () => {
+    let lists = [
+        [0,  1,  2],
+        [3,  4,  5],
+        [6,  7,  8],
+        [9, 10, 11]]
+    let arr = new Array2d(lists)
+    arr.set(15, 0, 3)
+    expect(arr.get(0,3)).toEqual(15)
+    expect(lists[3][0]).toEqual(9)
+})
+
+
+test('Turning the array into a 2d list', () => {
+    let lists = [
+        [0,  1,  2],
+        [3,  4,  5],
+        [6,  7,  8],
+        [9, 10, 11]]
+
+    let arr = new Array2d(lists)
+    expect(arr.toList()).toEqual(lists)
+
+})

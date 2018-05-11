@@ -45,6 +45,18 @@ class Array2d {
         let i = this._index(x, y)
         this._data[i] = val
     }
+
+    toList() {
+        let result = []
+        for (let j=0; j<this.height; j++) {
+            let row = []
+            for (let i=0; i<this.width; i++) {
+                row.push(this.get(i,j))
+            }
+            result.push(row)
+        }
+        return result
+    }
 }
 
 export default Array2d
