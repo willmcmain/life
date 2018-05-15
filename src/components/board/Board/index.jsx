@@ -1,12 +1,18 @@
+import Array2d from 'array2d'
 import React from 'react'
+import { connect } from 'react-redux'
+import { createSetCell } from 'store/board/actions'
 
-const Board = ({ data }) => (
+const BoardBase = ({ board, setCell }) => (
     <table>
         <tbody>
-        {[...Array(data.height)].map((_, y) => (
+        {[...Array(board.height)].map((_, y) => (
             <tr key={y}>
-            {[...Array(data.width)].map((_, x) => (
-                <Cell alive={data.get(x, y)} key={x} />
+            {[...Array(board.width)].map((_, x) => (
+                <Cell
+                    alive={board.get(x, y)}
+                    onClick={() => setCell(x,y)}
+                    key={x} />
             ))}
             </tr>
         ))}
@@ -14,8 +20,28 @@ const Board = ({ data }) => (
     </table>
 )
 
-const Cell = ({ alive }) => {
-    return <td className="alive">{alive}</td>
+const mapStateToProps = state => {
+    return {
+        board: new Array2d(state.board)
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setCell: (x, y) => {
+            dispatch(createSetCell(x, y))
+        }
+    }
+}
+
+const Board = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(BoardBase)
+
+
+const Cell = ({ alive, onClick }) => {
+    return <td className="alive" onClick={onClick}>{alive}</td>
 }
 
 export default Board
