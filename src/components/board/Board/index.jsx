@@ -1,7 +1,7 @@
 import Array2d from 'array2d'
 import React from 'react'
 import { connect } from 'react-redux'
-import { createSetCell } from 'store/board/actions'
+import { setCell } from 'store/board/actions'
 import style from './style.css'
 
 const BoardBase = ({ board, setCell }) => (
@@ -30,7 +30,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         setCell: (x, y) => {
-            dispatch(createSetCell(x, y))
+            dispatch(setCell(x, y))
         }
     }
 }
