@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { stepSimulation } from 'store/board/actions'
 import {
     haltSimulation,
-    runSimulation 
+    startSimulation 
 } from 'store/simulation/actions'
 
 const StepButtonBase = ({onClick}) => {
@@ -48,7 +48,7 @@ const mapDispatchToProps2 = dispatch => {
                 dispatch(haltSimulation())
             }
             else {
-                dispatch(runSimulation())
+                dispatch(startSimulation())
             }
         }
     }

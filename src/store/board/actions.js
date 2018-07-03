@@ -3,8 +3,6 @@ import {
     STEP_SIMULATION
 } from 'store/actionTypes'
 
-import store from 'store/store'
-
 export function setCell(x, y) {
     return { type: SET_CELL, x, y }
 }
