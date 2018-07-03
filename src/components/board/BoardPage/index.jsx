@@ -29,7 +29,6 @@ const BoardPage = () => {
         [0, 1, 1, 0]
     ])
     return (<div>
-        Board Goes Here
         <Board data={arr} />
         <StepButton />
     </div>)

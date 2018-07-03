@@ -2,20 +2,21 @@ import Array2d from 'array2d'
 import React from 'react'
 import { connect } from 'react-redux'
 import { createSetCell } from 'store/board/actions'
+import style from './style.css'
 
 const BoardBase = ({ board, setCell }) => (
     <table>
         <tbody>
-        {[...Array(board.height)].map((_, y) => (
-            <tr key={y}>
-            {[...Array(board.width)].map((_, x) => (
-                <Cell
-                    alive={board.get(x, y)}
-                    onClick={() => setCell(x,y)}
-                    key={x} />
+            {[...Array(board.height)].map((_, y) => (
+                <tr key={y} className={style.row} >
+                    {[...Array(board.width)].map((_, x) => (
+                        <Cell
+                            alive={board.get(x, y)}
+                            onClick={() => setCell(x,y)}
+                            key={x} />
+                    ))}
+                </tr>
             ))}
-            </tr>
-        ))}
         </tbody>
     </table>
 )
@@ -41,7 +42,8 @@ const Board = connect(
 
 
 const Cell = ({ alive, onClick }) => {
-    return <td className="alive" onClick={onClick}>{alive}</td>
+    const cellStyle = alive ? style.alive : null
+    return <td className={`${cellStyle} ${style.cell}`} onClick={onClick}></td>
 }
 
 export default Board

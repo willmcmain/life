@@ -1,0 +1,21 @@
+.cell {
+    width: 18px;
+    height: 18px;
+    border-right: 1px solid #444;
+}
+
+.cell:first {
+    border-left: 1px solid #444;
+}
+
+.row {
+    border-bottom: 1px solid #444;
+}
+
+.row:first-of-type {
+    border-top: 1px solid #444;
+}
+
+.alive {
+    background-color: royalblue;
+}
