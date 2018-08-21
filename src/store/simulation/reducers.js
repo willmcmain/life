@@ -9,7 +9,7 @@ export function simulation(
     state = {
         isRunning: false,
         lastStep: 0,
-        stepTime: 50,
+        stepTime: 80,
     },
     action) {
     switch(action.type) {

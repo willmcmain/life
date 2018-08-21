@@ -3,7 +3,10 @@ import Board from 'components/board/Board'
 import Array2d from 'array2d'
 
 import { connect } from 'react-redux'
-import { stepSimulation } from 'store/board/actions'
+import { 
+    clearBoard,
+    stepSimulation
+} from 'store/board/actions'
 import {
     haltSimulation,
     startSimulation 
@@ -59,6 +62,23 @@ const RunButton = connect(
     mapDispatchToProps2
 )(RunButtonBase)
 
+const ClearButtonBase = ({onClick}) => (
+    <button onClick={onClick}>Clear</button>
+)
+
+const mapDispatchToProps3 = dispatch => {
+    return {
+        onClick: () => (
+            dispatch(clearBoard())
+        )
+    }
+}
+
+const ClearButton = connect(
+    undefined,
+    mapDispatchToProps3
+)(ClearButtonBase)
+
 const BoardPage = () => {
     let arr = new Array2d([
         [0, 0, 0, 1],
@@ -69,6 +89,7 @@ const BoardPage = () => {
         <Board data={arr} />
         <StepButton />
         <RunButton />
+        <ClearButton />
     </div>)
 }
 
